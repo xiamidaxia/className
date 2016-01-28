@@ -37,10 +37,13 @@ const clsBody = cls.add('body');
 
 export default function App(props) {
   return <div className={cls}>
-    <div className={cls('header')}>header</div>;
+    <div className={cls('header')}>header</div>
     <div className={clsBody}>
-      <div className={clsBody('content')}>body content</div>
-    </div>;
+      <div className={clsBody('content')}>
+        body content
+        <a className={clsBody('link', { actived: true })}>link</a>
+      </div>
+    </div>
   </div>;
 }
 
@@ -61,6 +64,9 @@ ReactDOM.render(<App />, document.getElementById('__react-content'));
     &-content {
       color: #ddd;
     }
+    &-link.actived {
+      color: blue;
+    }
   }
 }
 ```
@@ -73,6 +79,7 @@ ReactDOM.render(<App />, document.getElementById('__react-content'));
 .app-header { color: #bbb; }
 .app-body { color: #ccc; }
 .app-body-content { color: #ddd; }
+.app-body-link.actived { color: blue; }
 
 ```
 
