@@ -27,7 +27,7 @@ cls('a') // pre-next-a
   
 ```
 
-used in react
+在react中的使用:
 
 ```javascript
 
@@ -35,7 +35,7 @@ import className from 'class-prefixer';
 const cls = className('app');
 const clsBody = cls.add('body');
 
-export default function App() {
+export default function App(props) {
   return <div className={cls}>
     <div className={cls('header')}>header</div>;
     <div className={clsBody}>
@@ -44,9 +44,11 @@ export default function App() {
   </div>;
 }
 
+ReactDOM.render(<App />, document.getElementById('__react-content'));
+
 ```
 
-In less maybe like this
+对应到less中:
 
 ```less
 .app {
@@ -62,7 +64,8 @@ In less maybe like this
   }
 }
 ```
-Transform into css
+
+最终转换成的css, 这种没有嵌套的css格式性能是最好的:
 
 ```css
 
