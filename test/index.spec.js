@@ -6,6 +6,7 @@ describe('className test', function() {
     var cls = className('pre');
     cls('').should.eql('pre');
     cls().should.eql('pre');
+    ;('' + cls).should.eql('pre');
   });
   it('main class', function() {
     var cls = className('pre');
@@ -17,8 +18,8 @@ describe('className test', function() {
   });
   it('state class', function() {
     var cls = className('pre');
-    cls(null, 'b c').should.eql('b c')
-    cls(null, ' b    c  ').should.eql('b c')
+    cls(null, 'b c').should.eql('b c');
+    cls(null, ' b    c  ').should.eql('b c');
     cls('a', ' b   c').should.eql('pre-a b c');
     cls('a b', ' b   c').should.eql('pre-a pre-b b c');
     cls('a', {b: true, c: false}).should.eql('pre-a b');

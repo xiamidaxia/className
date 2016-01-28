@@ -24,7 +24,7 @@ module.exports = function className(prefix) {
   cls.add = function (name) {
     return className(prefix + '-' + name);
   };
-  cls.prefix = function () {
+  cls.prefix = cls.toString = function () {
     return prefix;
   };
   return cls;
