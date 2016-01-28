@@ -23,4 +23,10 @@ describe('className test', function() {
     cls('a b', ' b   c').should.eql('pre-a pre-b b c');
     cls('a', {b: true, c: false}).should.eql('pre-a b');
   });
+  it('prefix add', function() {
+    var cls = className('pre');
+    var cls2 = cls.add('next');
+    cls2('a').should.eql('pre-next-a');
+    cls('a').should.eql('pre-a');
+  })
 });
