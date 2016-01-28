@@ -11,7 +11,7 @@ npm install class-prefixer
 
 ## example
 
-```javascrpt
+```javascript
 
 import className from 'class-prefixer';
 
