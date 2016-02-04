@@ -14,7 +14,12 @@ var classNames = require('classnames');
 module.exports = function className(prefix) {
   function cls(mainClass, stateClass, defaultPrefix) {
     mainClass = mainClass || '';
-    stateClass = stateClass || '';
+    if (typeof stateClass === 'boolean') {
+      defaultPrefix = stateClass;
+      stateClass = '';
+    } else {
+      stateClass = stateClass || '';
+    }
     mainClass = typeof mainClass !== 'string' ? classNames(mainClass) : mainClass.trim();
     stateClass = typeof stateClass !== 'string' ? classNames(stateClass) : stateClass.split(' ').filter(emptyFilter).join(' ').trim();
     var result = mainClass.split(' ').filter(emptyFilter)

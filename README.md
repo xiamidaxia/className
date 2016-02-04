@@ -24,7 +24,10 @@ cls('a', 'b c') // pre-a b c;
 cls('a', {b: true, c: false}) // pre-a b;
 cls = cls.add('next');
 cls('a') // pre-next-a
-  
+
+// add default prefix
+cls('a', true).should.eql('pre pre-a');
+cls('a', 'b', true).should.eql('pre pre-a b');
 ```
 
 在react中的使用:

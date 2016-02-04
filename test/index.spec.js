@@ -32,8 +32,9 @@ describe('className test', function() {
   });
   it('defaultPrefix', function() {
       var cls = className('pre');
-      cls('a', '', true).should.eql('pre pre-a');
-      cls('', '', true).should.eql('pre');
-      cls('', 'a', true).should.eql('pre a');
+      cls('a', true).should.eql('pre pre-a');
+      cls('a', 'b', true).should.eql('pre pre-a b');
+      cls('', 'b', true).should.eql('pre b');
+      cls('', true).should.eql('pre');
   });
 });
