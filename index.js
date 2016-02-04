@@ -12,14 +12,15 @@ var classNames = require('classnames');
  *    cls('a') // pre-next-a
  */
 module.exports = function className(prefix) {
-  function cls(mainClass, stateClass) {
+  function cls(mainClass, stateClass, defaultPrefix) {
     mainClass = mainClass || '';
     stateClass = stateClass || '';
     mainClass = typeof mainClass !== 'string' ? classNames(mainClass) : mainClass.trim();
     stateClass = typeof stateClass !== 'string' ? classNames(stateClass) : stateClass.split(' ').filter(emptyFilter).join(' ').trim();
     var result = mainClass.split(' ').filter(emptyFilter)
         .map(function(c) {return prefix + '-' + c}).join(' ') + ' ' + stateClass;
-    return result.trim() || prefix;
+    result = result.trim() || prefix;
+    return (defaultPrefix && result !== prefix ) ? prefix + ' ' + result : result;
   }
   cls.add = function (name) {
     return className(prefix + '-' + name);
